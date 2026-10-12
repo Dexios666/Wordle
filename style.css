@@ -1,0 +1,237 @@
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #f8f9fa;
+  --text: #202124;
+  --border: #d3d6da;
+  --green: #6aaa64;
+  --yellow: #c9b458;
+  --gray: #787c7e;
+  --key: #d3d6da;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.game {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+}
+
+.header {
+  padding-bottom: 16px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.header p {
+  margin: 8px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+
+.board {
+  display: grid;
+  gap: 5px;
+  width: min(100%, 330px);
+  margin: 0 auto 24px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  border: 2px solid var(--border);
+  font-size: 30px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.tile.filled {
+  border-color: #878a8c;
+}
+
+.tile.correct {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.tile.present {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: white;
+}
+
+.tile.absent {
+  background: var(--gray);
+  border-color: var(--gray);
+  color: white;
+}
+
+.message {
+  min-height: 22px;
+  margin: 10px 0 18px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.key-row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.key {
+  flex: 1;
+  max-width: 43px;
+  height: 55px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: var(--key);
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.key.wide {
+  max-width: 68px;
+  font-size: 12px;
+}
+
+.key.correct {
+  background: var(--green);
+  color: white;
+}
+
+.key.present {
+  background: var(--yellow);
+  color: white;
+}
+
+.key.absent {
+  background: var(--gray);
+  color: white;
+}
+
+.key:active {
+  transform: scale(0.96);
+}
+
+.anniversary-dialog {
+  position: relative;
+  width: min(420px, calc(100% - 32px));
+  padding: 36px 28px 30px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: white;
+  color: var(--text);
+  text-align: center;
+  box-shadow: 0 18px 60px rgb(32 33 36 / 20%);
+}
+
+.anniversary-dialog::backdrop {
+  background: rgb(32 33 36 / 48%);
+}
+
+.dialog-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  padding: 4px 8px;
+  border: 0;
+  background: transparent;
+  color: #777;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.dialog-heart {
+  margin: 0 0 12px;
+  color: var(--green);
+  font-size: 40px;
+  line-height: 1;
+}
+
+.dialog-message {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+@media (max-width: 430px) {
+  .key-row {
+    gap: 4px;
+  }
+
+  .key {
+    min-width: 0;
+    height: clamp(48px, 6.3vh, 55px);
+    font-size: clamp(14px, 4vw, 16px);
+  }
+
+  .key.wide {
+    flex: 1.4;
+  }
+}
+
+@media (max-width: 380px) {
+  .game {
+    padding: 12px;
+  }
+
+  .tile {
+    font-size: 25px;
+  }
+
+  .key {
+    height: 48px;
+    font-size: 14px;
+  }
+
+  .key.wide {
+    font-size: 10px;
+  }
+}

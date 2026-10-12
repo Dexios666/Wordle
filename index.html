@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f9fa">
+  <title>Wordle ♡</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="game">
+    <header class="header">
+      <h1>WORDLE</h1>
+      <p>Guess the five-letter word ♡</p>
+    </header>
+
+    <section id="board" class="board"
+      aria-label="Word guessing board"></section>
+
+    <p id="message" class="message" role="status"
+      aria-live="polite">
+      You have 6 attempts. Good luck!
+    </p>
+
+    <section id="keyboard" class="keyboard"
+      aria-label="On-screen keyboard"></section>
+  </main>
+
+  <dialog id="anniversary-dialog" class="anniversary-dialog"
+    aria-labelledby="anniversary-message">
+    <button id="close-dialog" class="dialog-close" type="button"
+      aria-label="Close message">&times;</button>
+    <p class="dialog-heart" aria-hidden="true">♡</p>
+    <p id="anniversary-message" class="dialog-message">
+      Happy Third Year Anniversary, my Baby. I love you so much!
+    </p>
+  </dialog>
+</body>
+</html>
